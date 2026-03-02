@@ -1,11 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="./dist/app.js" type="module"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hostel Management System</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="hms-header">
+      <div class="hms-header__inner">
+        <h1>Hostel Management System</h1>
+        <p>Manage residents, rooms, and statistics from a single dashboard</p>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="hms-main">
+      <div class="hms-main__content">
+        <!-- TOP ROW: FORM + STATS -->
+        <section class="hms-top">
+          <!-- LEFT: ADD RESIDENT FORM -->
+          <section
+            class="card card--form"
+            aria-labelledby="add-resident-title"
+          >
+            <div class="card__header">
+              <h2 id="add-resident-title" class="card__title">
+                Add Resident
+              </h2>
+              <p class="card__subtitle">
+                Register a new resident and assign an available room
+              </p>
+            </div>
+
+            <form id="residentForm" class="form">
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+
+                <div class="form__group">
+                  <label for="age">Age</label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    min="0"
+                    placeholder="e.g. 21"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="phone">Phone</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="e.g. 9876543210"
+                    required
+                  />
+                </div>
+
+                <div class="form__group">
+                  <label for="roomNumber">Room Number</label>
+                  <select id="roomNumber" name="roomNumber" required>
+                    <!-- <option name="roomNumber" disabled selected hidden>Select a room</option> -->
+                    <!-- Options filled by JS/TS -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="form__group form__group--full">
+                  <label for="checkInDate">Check-in Date</label>
+                  <input
+                    type="date"
+                    id="checkInDate"
+                    name="checkInDate"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form__actions">
+                <button type="submit" class="btn btn--green">
+                  Add Resident
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <!-- RIGHT: ROOM STATISTICS -->
+          <section class="card card--stats" aria-labelledby="stats-title">
+            <div class="card__header">
+              <h2 id="stats-title" class="card__title">Room Statistics</h2>
+              <p class="card__subtitle">
+                Live overview of total, occupied, and vacant rooms
+              </p>
+            </div>
+
+            <div id="stats" class="stats">
+              <!-- Your JS/TS currently injects <p> elements here.
+                   You can later switch to the .stats__item structure if you want. -->
+            </div>
+          </section>
+        </section>
+
+        <!-- RESIDENT LIST: FULL-WIDTH TABLE -->
+        <section
+          class="card card--table"
+          aria-labelledby="resident-list-title"
+        >
+          <div class="card__header card__header--table">
+            <div>
+              <h2 id="resident-list-title" class="card__title">
+                Resident List
+              </h2>
+              <p class="card__subtitle">
+                View, edit, and manage current hostel residents
+              </p>
+            </div>
+            <div class="search-bar search-bar--inline">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search resident by name..."
+              />
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-scroll">
+              <table class="resident-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Room</th>
+                    <th>Check-in Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="residentTableBody">
+                  <!-- Rows (with .editBtn and .deleteBtn) are populated by JS/TS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Your main JS bundle -->
+    <script type="module" src="./dist/app.js"></script>
+  </body>
 </html>

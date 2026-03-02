@@ -1,0 +1,422 @@
+/* ========== RESET ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc, #e0f2fe);
+  min-height: 100vh;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+
+.hms-header {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #7c3aed);
+  color: white;
+  padding: 2.2rem 1rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hms-header::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  top: -200px;
+  right: -120px;
+  opacity: 0.4;
+}
+
+.hms-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hms-header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+
+.hms-header p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-top: 0.4rem;
+}
+
+/* ========== MAIN LAYOUT ========== */
+
+.hms-main {
+  padding: 0 1rem 2.5rem;
+  width: 100%;
+  display: block;
+}
+
+.hms-main__content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: block;
+}
+
+.hms-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.3rem;
+  margin-bottom: 1.6rem;
+}
+
+/* ========== CARDS ========== */
+
+.card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+  padding: 1.3rem 1.3rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.12),
+    0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Resident list card: full width, centered, block layout */
+.card--table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.card__subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.1rem;
+}
+
+/* ========== FORM ========== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.6rem;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form__group--full {
+  grid-column: 1 / -1;
+}
+
+.form label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form input,
+.form select {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  transition: 0.15s;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.form__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ========== BUTTONS ========== */
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.btn--green {
+  background: #16a34a;
+  color: white;
+  box-shadow: 0 8px 18px rgba(22, 163, 74, 0.35);
+}
+
+.btn--green:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.editBtn {
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.6);
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  font-size: 0.72rem;
+  padding: 0.32rem 0.7rem;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  background: rgba(37, 99, 235, 0.15);
+}
+
+.deleteBtn {
+  border-radius: 999px;
+  border: 1px solid rgba(220, 38, 38, 0.8);
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  font-size: 0.72rem;
+  padding: 0.32rem 0.7rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background: rgba(220, 38, 38, 0.2);
+}
+
+/* ========== ROOM STATISTICS ========== */
+
+.card--stats {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stats {
+  flex: 1;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.stats p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.15s ease;
+}
+
+.stats p:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.12);
+}
+
+.stats strong,
+.stats span {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.stats p:nth-child(1) {
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  color: #3730a3;
+}
+
+.stats p:nth-child(2) {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1d4ed8;
+}
+
+.stats p:nth-child(3) {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #15803d;
+}
+
+.stats p:nth-child(1):hover {
+  border: 2px solid #4f46e5;
+}
+
+.stats p:nth-child(2):hover {
+  border: 2px solid #2563eb;
+}
+
+.stats p:nth-child(3):hover {
+  border: 2px solid #16a34a;
+}
+
+/* ========== RESIDENT TABLE ========== */
+
+.card--table .card__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.table-container {
+  margin-top: 0.6rem;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  background: white;
+  width: 100%;
+}
+
+.table-scroll {
+  max-height: 440px;
+  overflow: auto;
+  width: 100%;
+}
+
+.resident-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.resident-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f1f5f9;
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #475569;
+  padding: 0.7rem 0.9rem;
+}
+
+.resident-table td {
+  padding: 0.65rem 0.9rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.resident-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.resident-table tbody tr {
+  transition: background 0.18s ease;
+}
+
+.resident-table tbody tr:has(.editBtn:hover) {
+  background: rgba(37, 99, 235, 0.15) !important;
+  border-left: 4px solid #2563eb;
+}
+
+.resident-table tbody tr:has(.deleteBtn:hover) {
+  background: rgba(220, 38, 38, 0.15) !important;
+  border-left: 4px solid #dc2626;
+}
+
+/* ========== SEARCH BAR ========== */
+
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-bar--inline {
+  flex-shrink: 0;
+}
+
+#searchInput {
+  width: 260px;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.85rem;
+  background: #f9fafb;
+  transition: all 0.15s ease;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+#searchInput:hover {
+  border-color: #2563eb;
+}
+
+#searchInput::placeholder {
+  color: #9ca3af;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 960px) {
+  .hms-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hms-header h1 {
+    font-size: 2rem;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+
+  #searchInput {
+    width: 100%;
+  }
+}

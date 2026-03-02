@@ -1,8 +1,8 @@
 export interface Resident{
-    id: String;
-    name: String;
-    age: Number;
-    phone: String;
+    id: string;
+    name: string;
+    age: number;
+    phone: string;
     checkIndate: string;
     roomNumber: number;
 }
